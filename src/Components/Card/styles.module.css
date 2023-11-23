@@ -1,0 +1,38 @@
+.container{
+    margin: 0 auto;
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card{
+    margin: 20px 10px;
+    width: 520px;
+    border: 2px solid #808080;
+    border-radius: 25px;
+    
+    padding: 0 10px;
+    background-color: white;
+  box-shadow: 7px 5px 3px #00000070;
+}
+.card_img{
+    width: 400px;
+    padding: 10px 0;
+}
+.card_name{
+    font-weight:Bold;
+    font-size: large;
+}
+.card_title{
+    font-size: larger;
+    padding: 10px 0;    
+}
+.card_body{
+    font-size: medium;
+    padding-bottom: 10px
+}
+.card_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

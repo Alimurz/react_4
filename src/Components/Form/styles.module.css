@@ -1,0 +1,21 @@
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+.input_text{
+width: 25%;
+height: 30px;
+border-bottom-left-radius: 15px;
+border-top-left-radius: 15px;
+}
+.form_btn{
+    width: 50px;
+    height: 36px;
+    color: white;
+    font-weight: 900;
+    background-color: dodgerblue;
+    border-bottom-right-radius: 15px;
+border-top-right-radius: 15px;
+}
