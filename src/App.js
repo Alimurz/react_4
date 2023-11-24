@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Components/Header/index_header";
 import Card from './Components/Card/index_card'
 import Form from "./Components/Form/index_form";
-
+import { useState } from "react";
 
 const Data = [
   { 
@@ -42,19 +42,25 @@ const Data = [
   }
 ]
 function App() {
-  
+
+  const [memes, setMemes] = useState(Data);
+  const addMeme = (newItem) => {
+    setMemes([...memes, newItem]); // Update the meme list by adding the new meme object
+  };
+
   return (
     <div className="App">
       <Header />
-      <Form />
+      <Form addMeme={addMeme} />
       
-       { Data.map(item => (
+       { memes.map((meme) => (
           <Card  
-            key={item.id}
-            image={item.image}
-            name={item.name}
-            title={item.title}
-            body={item.body}
+            key={meme.id}
+            id={meme.id}
+            image={meme.image}
+            name={meme.name}
+            title={meme.title}
+            body={meme.body}
           />
         ))
        }
@@ -67,8 +73,3 @@ export default App;
 
 
 
-// На странице должен быть один инпут для поля title и кнопка Add. 
-// Значение хэндлить через стейт, при нажатии на кнопку Add, стейт, 
-// в котором хранится массив постов, нужно обновить новым массивом, в который будет запушен новый объект, 
-// в котором поле id вы сгенерите через math.random, а в title вы запишите значение из инпута, body также можете оставить пустым.
-// Если вы все сделаете правильно, то у вас отобразится новая строка с постом после нажатия на кнопку Add
