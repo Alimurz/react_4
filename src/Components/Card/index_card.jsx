@@ -1,30 +1,35 @@
 import React, { useState } from 'react';
-import Styles from "./styles.module.css";
+import styles from './styles.module.css';
 
-function Card(props) {
-  const [showMeme, setShowMeme] = useState(true);
+function Form({ addMeme }) {
+  const [title, setTitle] = useState('');
 
-  const hideMeme = () => {
-    setShowMeme(false);
+  const addToList = () => {
+    const newMeme = {
+      id: Math.random(),
+      title: title,
+      body: ''
+    };
+    addMeme(newMeme);
+    setTitle('');
   };
 
   return (
-    <div className={Styles.container}>
-      {showMeme && (
-        <div className={Styles.card}>
-          <div className={Styles.card_item}>
-            <img src={props.image} alt="." className={Styles.card_img} />
-            <span className={Styles.card_name}>{props.name}</span>
-            <span className={Styles.card_title}>{props.title}</span>
-            <span className={Styles.card_body}>{props.body}</span>
-          </div>
-          <div className={Styles.card_item}>
-            <button onClick={hideMeme}>Remove</button>
-          </div>
-        </div>
-      )}
+    <div>
+      <form>
+        <input
+          type="text"
+          className={styles.input_text}
+          placeholder="Write the title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <button className={styles.form_btn} onClick={addToList}>
+          Add
+        </button>
+      </form>
     </div>
   );
 }
 
-export default Card;
+export default Form;
